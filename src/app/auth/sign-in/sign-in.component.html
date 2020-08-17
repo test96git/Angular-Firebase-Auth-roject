@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="signin">
+      <h3>Please Sign In Here!</h3>
+      <div class="form-group">
+        <input type="text" appNospaces class="form-control" id="userName" placeholder="Username" maxlength="30" minlength="5" #userName required>
+      </div>
+      <div class="form-group">
+        <input type="password" class="form-control" placeholder="Password" #userPassword required>
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" (click)="authService.signIn(userName.value, userPassword.value)">Sign In</button>
+        <span class="or">Or</span>
+        <button type="button" class="btn btn-primary" (click)="authService.googleAuth()">Sign In with Google</button>
+      </div>
+      <div class="form-group">
+        <button class="form-control btn btn-info" routerLink="/forgotPassword">Forgot Password</button>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-info" routerLink="/signUp">Don't have an account yet? Sign Up Here!</button>
+      </div>
+
+    </div>
+  </div>
+</div>

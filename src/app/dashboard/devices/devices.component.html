@@ -1,0 +1,43 @@
+<div><h4 class="text-center" style="margin-top: 18px;">Device List Data</h4></div>
+<div class="btns-devicetbl">
+  <button type="button" class="btn btn-light" *ngIf="isRebootVisible" (click)="rebootFamily()">Reboot</button>
+  <button type="button" class="btn btn-light" *ngIf="isShutdownVisible" (click)="shutDownFamily()">Shutdown</button>
+  <button type="button" class="btn btn-light" *ngIf="isFirmwareVisible" (click)="firmwareFamily()">Firmware</button>
+  <button type="button" class="btn btn-light" *ngIf="isConfigVisible" (click)="configFamily()">Config</button>
+</div>
+<table class="table table-borderless">
+  <thead class="border-bottom br-5">
+    <tr>
+      <td><input type="checkbox" [(ngModel)]="multiSel" (ngModelChange)="selectAll()"></td>
+      <td>Device ID</td>
+      <td>Device Name</td>
+      <td>Serial Number</td>
+      <td>Created At</td>
+      <td>Updated At</td>
+      <td>Last Contacted</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let device of deviceList;let deviceIndex = index">
+      <td><input type="checkbox" [(ngModel)]="device.singleSel" (ngModelChange)="selectOne(deviceIndex, device)"></td>
+      <td>
+        {{device?.device_id}}
+      </td>
+      <td>
+        {{device?.device_name}}
+      </td>
+      <td>
+        {{device?.serial_num}}
+      </td>
+      <td>
+        {{device?.created_at | date: 'short'}}
+      </td>
+      <td>
+        {{device?.updated_at | date:'short'}}
+      </td>
+      <td>
+        {{device?.last_contacted | date:'short'}}
+      </td>
+    </tr>
+  </tbody>
+</table>

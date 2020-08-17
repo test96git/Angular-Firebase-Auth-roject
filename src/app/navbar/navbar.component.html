@@ -1,0 +1,40 @@
+<div class="container-wrapper">
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand cl-sm-3 col-md-2 mr-0">
+    <img class="brand-logo" src="favicon.ico" alt="logo img">
+  </a>
+
+  <li class="nav-item userEmailLi">
+    <div class="userEmail" style="padding: 8px;">
+      <i class="fas fa-user"></i> {{authService.userData?.email}}
+    </div>
+    <a class="nav-link" (click)="authService.signOut()" style="padding-left: 8px;">
+      <i class="fas fa-sign-out-alt"></i>Log Out
+    </a>
+  </li>
+</nav>
+
+  <div class="container-fluid displayContainer">
+    <div class="row">
+      <nav class="col-md-2 d-md-block bg-light sidebar">
+    <div class="sidebar-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/dashboard">
+            <i class="fas fa-home"></i> Home
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/devices">
+            <i class="fas fa-cogs"></i> Device List Links
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+      <div class="inner-wrapper col-md-10">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+</div>
+</div>
